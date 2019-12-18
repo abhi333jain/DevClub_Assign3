@@ -20,7 +20,10 @@ while(start_year<=end_year) :
         while(start_month<=12):
             os.mkdir(monthsinv[start_month])
             os.chdir(monthsinv[start_month])
-            source = requests.get("http://explosm.net/comics/archive/"+str(start_year)+"/"+str(start_month))
+            if(start_month<=9)
+                source = requests.get("http://explosm.net/comics/archive/"+str(start_year)+"/0"+str(start_month))
+            else
+                source = requests.get("http://explosm.net/comics/archive/" + str(start_year) + "/" + str(start_month))
             soup = BeautifulSoup(source.content ,'html5lib')
 
             for comic_content in soup.find_all(id='comic-author'):
@@ -46,7 +49,10 @@ while(start_year<=end_year) :
        while (start_month <= end_month):
            os.mkdir(monthsinv[start_month])
            os.chdir(monthsinv[start_month])
-           source = requests.get("http://explosm.net/comics/archive/" + str(start_year) + "/" + str(start_month))
+           if (start_month <= 9)
+               source = requests.get("http://explosm.net/comics/archive/" + str(start_year) + "/0" + str(start_month))
+           else
+               source = requests.get("http://explosm.net/comics/archive/" + str(start_year) + "/" + str(start_month))
            soup = BeautifulSoup(source.content, 'html5lib')
 
            for comic_content in soup.find_all(id='comic-author'):
